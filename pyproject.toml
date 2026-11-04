@@ -1,0 +1,26 @@
+[project]
+name = "photocull"
+version = "0.1.0"
+description = "本機 RAW/JPEG 照片整理：CPU 快篩、GPU 美學分、VLM 標籤"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "numpy>=1.26",
+  "opencv-python-headless>=4.9",
+  "Pillow>=10.0",
+  "imagehash>=4.3",
+  "pillow-heif>=0.16",
+]
+
+[project.optional-dependencies]
+gpu = ["torch", "open_clip_torch"]
+
+[project.scripts]
+photocull = "photocull.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
